@@ -24,6 +24,9 @@
     <Reference Include="Day04">
       <HintPath>..\..\NET.Winter.2020.Demidenko.04\Day04\bin\Debug\netcoreapp3.1\Day04.dll</HintPath>
     </Reference>
+    <Reference Include="NumbersExtension">
+      <HintPath>..\..\NET.Winter.2020.Demidenko.03\NumbersExtension\bin\Debug\netcoreapp3.1\NumbersExtension.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
