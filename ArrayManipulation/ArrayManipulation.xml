@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ArrayManipulation</name>
+    </assembly>
+    <members>
+        <member name="T:ArrayManipulation.ArrayExtension">
+            <summary>Provides methods for array extension.</summary>
+        </member>
+        <member name="F:ArrayManipulation.ArrayExtension.MaxValueOfDigit">
+            <summary>Maximum value of digit.</summary>
+        </member>
+        <member name="M:ArrayManipulation.ArrayExtension.FindBalanceIndex(System.Int32[])">
+            <summary>Finds the maxIndex of the balance.</summary>
+            <param name="array">An array.</param>
+            <returns>Returns maxIndex or <em>null</em> if maxIndex not found.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when array is null.</exception>
+        </member>
+        <member name="M:ArrayManipulation.ArrayExtension.FindMaximumItem(System.Int32[])">
+            <summary>Finds the maximum item in the given array.</summary>
+            <param name="array">An array.</param>
+            <returns>Returns a value of maximum element.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when array is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when array is empty.</exception>
+        </member>
+        <member name="M:ArrayManipulation.ArrayExtension.FilterArrayByKey(System.Int32[],System.Byte)">
+            <summary>Creates new array that contains only numbers with given digit.</summary>
+            <param name="array">An array.</param>
+            <param name="digit">Filter digit.</param>
+            <returns>Returns new filtered array.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when array is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when array is empty.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when <em>digit</em> is out of range.</exception>
+        </member>
+        <member name="M:ArrayManipulation.ArrayExtension.FilterArrayByKey(System.Int32[])">
+            <summary>Creates new array that contains only palindrome numbers.</summary>
+            <param name="array">An array.</param>
+            <returns>Returns new filtered array.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when array is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when array is empty.</exception>
+        </member>
+    </members>
+</doc>
