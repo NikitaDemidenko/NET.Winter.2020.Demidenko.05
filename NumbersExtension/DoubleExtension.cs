@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -11,26 +12,65 @@ namespace NumbersExtensions
 
         public static string BinaryStringRepresentation(this double number)
         {
-            Union union;
-            union.LongNumber = 0;
-            union.Number = number;
-            string result = Convert.ToString(union.LongNumber, 2);
-            int additionalZerosCount = MaxBitsCount - result.Length;
-            for (int i = 0; i < additionalZerosCount; i++)
+            Union union = new Union
             {
-                result = '0' + result;
+                Number = number,
+            };
+            char[] result = ConvertToBinaryString(union.LongNumber);
+
+            return new string(result);
+        }
+
+        private static char[] ConvertToBinaryString(long number)
+        {
+            char[] binaryDoubleString = new char[MaxBitsCount];
+            for (int i = 0; i < MaxBitsCount; i++)
+            {
+                binaryDoubleString[i] = '0';
             }
 
-            return result;
+            byte remainder;
+            if (number < 0)
+            {
+                number = ~number;
+                int i = MaxBitsCount - 1;
+                while (i >= 0)
+                {
+                    remainder = (byte)(number % 2);
+                    number /= 2;
+                    binaryDoubleString[i] = remainder == 1 ? '0' : '1';
+                    i--;
+                }
+            }
+            else
+            {
+                int i = MaxBitsCount - 1;
+                while (i >= 0)
+                {
+                    remainder = (byte)(number % 2);
+                    number /= 2;
+                    binaryDoubleString[i] = remainder == 1 ? '1' : '0';
+                    i--;
+                }
+            }
+
+            return binaryDoubleString;
         }
 
         [StructLayout(LayoutKind.Explicit)]
         private struct Union
         {
             [FieldOffset(0)]
-            public double Number;
+            private double number;
             [FieldOffset(0)]
-            public long LongNumber;
+            private long longNumber;
+
+            public long LongNumber => this.longNumber;
+
+            public double Number
+            {
+                set => this.number = value;
+            }
         }
     }
 }
